@@ -1,0 +1,12 @@
+filename=$1
+
+filename_without_path=`echo "${filename##*/}"`
+filename_without_extension=`echo "${filename_without_path%.*}"`
+
+zip_dest=`echo "${filename_without_extension}.zip"`
+
+tail -n +2 $1 | base64 -d > $zip_dest
+
+unzip -o $zip_dest
+
+rm $zip_dest
