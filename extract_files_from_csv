@@ -11,4 +11,4 @@ tail -n +2 $1 | base64 -d > $zip_dest
 unzip -o $zip_dest
 rm $zip_dest
 
-mv $1 $filename_without_extension
+mv $1 $filename_without_extension/zzz_base64_encoded.csv
