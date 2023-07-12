@@ -6,9 +6,9 @@ project_directory=filename_without_extension
 
 zip_dest=`echo "${filename_without_extension}.zip"`
 
-tail -n +2 $1 | base64 -d > $zip_dest
+base64 $1 -d > $zip_dest
 
 unzip -o $zip_dest
 rm $zip_dest
 
-mv $1 $filename_without_extension/zzz_base64_encoded.csv
+mv $1 "$filename_without_extension/zzz_$1"
